@@ -10,9 +10,10 @@
 
 .sec-up {
   border: 2px solid #383838;
-  width: 20%;
+  width: 100%;
+  max-width: 400px; /* إضافة حد أقصى للعرض */
   margin: auto;
-  margin-top: 200px;
+  margin-top: 50px; /* تعديل المسافة العلوية لتناسب الشاشات الصغيرة */
   padding: 10px 0;
 }
 
@@ -30,7 +31,7 @@
 .sec-up .btn {
   margin-top: 10px;
   padding: 5px;
-  width: 110px;
+  width: 90%;
   border: none;
   background-color: #F28C2E;
   color: white;
@@ -39,6 +40,7 @@
   border-radius: 25px;
   letter-spacing: 2px;
   transition: .3s;
+
 }
 .sec-up .btn:hover{
   background-color: #d7751a;
@@ -62,4 +64,24 @@
 .icon{
   margin-left: 50px;
   color: red;
+}
+
+@media (max-width: 576px) {
+  .sec-up {
+    width: 90%; /* زيادة العرض في الشاشات الصغيرة */
+    margin-top: 20px;
+  }
+
+  .sec-up h2 {
+    font-size: 20px;
+  }
+
+  .sec-up .inp,
+  .sec-up .btn {
+    font-size: 14px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
 }
