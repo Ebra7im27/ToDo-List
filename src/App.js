@@ -44,8 +44,8 @@ function App() {
         <ul>
           {x.map(({ value, completed }, index) => (
             <li
-              className={completed ? 'diffstyle' : ''}
-              onClick={() => itemDone(index)}>{value}
+              onClick={() => itemDone(index)}
+              className={completed ? 'diffstyle' : ''}>{value}
               <i onClick={(event) => toDelete(index, event)} className="fas fa-times icon"></i>
             </li>
           ))}
