@@ -3,12 +3,22 @@ import { Container, Form, Button } from 'react-bootstrap'
 import './App.css'
 
 function App() {
-  const [x, setx] = useState([])
+  const [x, setx] = useState(() => {
+    // localStorage استرجاع البيانات من  عند تحميل الصفحة
+    const savedTasks = localStorage.getItem('tasks')
+    return savedTasks ? JSON.parse(savedTasks) : []
+  })
+
   const inputRef = useRef()
 
   useEffect(() => {
     inputRef.current.focus()
   }, [])
+
+  useEffect(() => {
+    // localStorage تخزين المهام في  عند تحديث القائمة
+    localStorage.setItem('tasks', JSON.stringify(x))
+  }, [x])
 
   const add = () => {
     const value = inputRef.current.value
@@ -22,7 +32,7 @@ function App() {
   const itemDone = (index) => {
     const newx = [...x] // القديمه state كدا اخدت نسخه من ال
 
-    newx[index].completed = !newx[index].completed // والعكس true خليها  false  لو
+    newx[index].completed = !newx[index].completed // والعكس true خليها false لو
 
     setx(newx) // x جدد قيمه ال
   }
