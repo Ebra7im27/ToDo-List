@@ -22,6 +22,11 @@ function App() {
 
   const add = () => {
     const value = inputRef.current.value
+    if (value === '') {
+      alert('Please enter a task before adding!')
+      return
+    }
+    
     const newData = { completed: false, value }
     setx([...x, newData])
 
